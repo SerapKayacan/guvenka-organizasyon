@@ -1,163 +1,119 @@
 @extends('frontend.layouts.master')
 @section('content')
-    <!-- Contact Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <div class="h6 text-primary text-uppercase">// İletişim //</div>
-                <h1 class="mb-5">Her Konuda Bize Ulaşın</h1>
+<!-- Contact Start -->
+<section id="contact-content" class="pt-3 mb-4">
+    <div class="container-fluid padding-side">
+        <div class="text-center mx-auto mb-5" data-aos="fade-up" style="max-width: 600px;">
+            <h4 class="display-6 text-primary fw-normal mb-2">İletişim</h4>
+            <h1 class="display-5 fw-normal mb-4">Size Bir Telefon Kadar Yakınız</h1>
+        </div>
+        <div class="row g-5 align-items-stretch">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="d-flex flex-column gap-4 h-100">
+                    <div class="bg-light d-flex align-items-center w-100 p-4 rounded-4 contact-card transition-hover">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fa fa-map-marker-alt text-white fs-5"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-1 text-muted">Adres</p>
+                            <h5 class="mb-0 fw-normal">Orta Mh. Kılıç Alipaşa Sk.<br>No:20A Kartal/İstanbul</h5>
+                        </div>
+                    </div>
+                    <div class="bg-light d-flex align-items-center w-100 p-4 rounded-4 contact-card transition-hover">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fa fa-phone-alt text-white fs-5"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-1 text-muted">Telefon</p>
+                            <h5 class="mb-0 fw-normal">0216 514 80 83</h5>
+                        </div>
+                    </div>
+                    <div class="bg-light d-flex align-items-center w-100 p-4 rounded-4 contact-card transition-hover">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fa fa-mobile-alt text-white fs-5"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-1 text-muted">Mobil</p>
+                            <h5 class="mb-0 fw-normal">0535 300 80 52</h5>
+                        </div>
+                    </div>
+                    <div class="bg-light d-flex align-items-center w-100 p-4 rounded-4 contact-card transition-hover">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fa fa-envelope-open text-white fs-5"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-1 text-muted">Mail</p>
+                            <h5 class="mb-0 fw-normal">info@guvenkagroup.com</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row g-4">
-                <div class="col-12">
-                    <div class="row gy-4">
-                        <div class="col-md-4">
-                            <div class="bg-light d-flex flex-column justify-content-center p-4">
-                                <h5 class="text-uppercase">// Adres //</h5>
-                                <p class="m-0"><i class="fa fa-map-marker-alt text-primary me-2"></i>Ataköy 7-8-9-10 Kısım Mahallesi, Bakırköy/İstanbul</p>
+            
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="bg-white p-3 rounded-4 shadow-sm border h-100 d-flex flex-column justify-content-center">
+                    <h3 class="display-6 fw-normal mb-3">Mesaj Gönderin</h3>
+                    <p class="mb-4 text-muted">Bizimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz. En kısa sürede size geri dönüş yapılacaktır.</p>
+                    <form>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control rounded-3 bg-light border-0" id="name" placeholder="Adınız">
+                                    <label for="name">Adınız</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control rounded-3 bg-light border-0" id="email" placeholder="E-posta Adresiniz">
+                                    <label for="email">E-posta Adresiniz</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control rounded-3 bg-light border-0" id="subject" placeholder="Konu">
+                                    <label for="subject">Konu</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control rounded-3 bg-light border-0" placeholder="Mesajınızı buraya yazın" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Mesajınız</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-0">
+                                <button class="btn btn-primary btn-arrow rounded-3 px-5 py-2 d-inline-flex align-items-center" type="submit">
+                                    <span>Mesaj Gönder <svg width="18" height="18" class="ms-2">
+                                        <use xlink:href="#arrow-right"></use>
+                                    </svg></span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="bg-light d-flex flex-column justify-content-center p-4">
-                                <h5 class="text-uppercase">// Telefon //</h5>
-                                <p class="m-0"><i class="fa fa-phone-alt text-primary me-2"></i><a href="tel:+902124742035" class="text-dark">0212 474 20 35</a></p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="bg-light d-flex flex-column justify-content-center p-4">
-                                <h5 class="text-uppercase">// E-Posta //</h5>
-                                <p class="m-0"><i class="fa fa-envelope-open text-primary me-2"></i><a href="mailto:bilgi@smartozelguvenlik.com" class="text-dark">bilgi@smartozelguvenlik.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.443!2d28.8720!3d40.9823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa4a3c3c3c3c3%3A0x0!2sAtaköy%2C%20Bakırköy%2Fİstanbul!5e0!3m2!1str!2str"
-                        frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                </div>
-                <div class="col-md-6">
-                    <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        @if(session('success'))
-                            <div class="alert alert-success mb-4">{{ session('success') }}</div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger mb-4">{{ session('error') }}</div>
-                        @endif
-                        <form action="{{ route('contact.submit') }}" method="POST">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Adınız" value="{{ old('name') }}">
-                                        <label for="name">Adınız</label>
-                                        @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="E-Posta" value="{{ old('email') }}">
-                                        <label for="email">E-Posta</label>
-                                        @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control @error('subject') is-invalid @enderror" id="subject" name="subject" placeholder="Konu" value="{{ old('subject') }}">
-                                        <label for="subject">Konu</label>
-                                        @error('subject')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control @error('message') is-invalid @enderror" placeholder="Mesajınız" id="message" name="message" style="height: 100px">{{ old('message') }}</textarea>
-                                        <label for="message">Mesajınız</label>
-                                        @error('message')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Mesaj Gönder</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Contact End -->
-    <!-- Career Start -->
-    <div class="container-xxl py-5 mt-5 bg-light" style="border-radius: 20px;">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <div class="h6 text-primary text-uppercase">// Kariyer //</div>
-                <h1 class="mb-5">İnsan Kaynakları Başvurusu</h1>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-8">
-                    <div class="wow fadeInUp bg-white p-5 rounded shadow-sm border border-primary border-opacity-10" data-wow-delay="0.2s">
-                        <p class="text-center mb-4">Aramıza katılmak isterseniz, aşağıdaki formu doldurarak CV'nizi (Özgeçmiş) bize iletebilirsiniz.</p>
-                        <form action="{{ route('contact.submitCv') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="hr_name" name="name" placeholder="Adınız Soyadınız" value="{{ old('name') }}" required>
-                                        <label for="hr_name">Adınız Soyadınız</label>
-                                        @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="hr_email" name="email" placeholder="E-Posta Adresiniz" value="{{ old('email') }}" required>
-                                        <label for="hr_email">E-Posta Adresiniz</label>
-                                        @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control @error('phone') is-invalid @enderror" id="hr_phone" name="phone" placeholder="Telefon Numaranız" value="{{ old('phone') }}" required>
-                                        <label for="hr_phone">Telefon Numaranız</label>
-                                        @error('phone')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select @error('position') is-invalid @enderror" id="hr_position" name="position" style="height: 58px;" required>
-                                            <option value="" selected disabled>Pozisyon Seçiniz</option>
-                                            <option value="Güvenlik Görevlisi" {{ old('position') == 'Güvenlik Görevlisi' ? 'selected' : '' }}>Güvenlik Görevlisi</option>
-                                            <option value="Temizlik Personeli" {{ old('position') == 'Temizlik Personeli' ? 'selected' : '' }}>Temizlik Personeli</option>
-                                            <option value="Yönetici Adayı" {{ old('position') == 'Yönetici Adayı' ? 'selected' : '' }}>Yönetici Adayı</option>
-                                            <option value="Merkez Ofis" {{ old('position') == 'Merkez Ofis' ? 'selected' : '' }}>Merkez Ofis Personeli</option>
-                                            <option value="Diğer" {{ old('position') == 'Diğer' ? 'selected' : '' }}>Diğer</option>
-                                        </select>
-                                        <label for="hr_position">Başvurduğunuz Pozisyon</label>
-                                        @error('position')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label text-muted ms-2 mt-2">CV / Özgeçmiş Yükle (.pdf, .doc, .docx - Max 5MB)</label>
-                                    <div class="input-group">
-                                        <input type="file" class="form-control p-3 @error('cv_file') is-invalid @enderror" id="cv_file" name="cv_file" accept=".pdf,.doc,.docx" required style="border-radius: 10px;">
-                                        @error('cv_file')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating mt-3">
-                                        <textarea class="form-control @error('message') is-invalid @enderror" placeholder="Ön Yazı / Mesajınız (İsteğe Bağlı)" id="hr_message" name="message" style="height: 120px">{{ old('message') }}</textarea>
-                                        <label for="hr_message">Ön Yazı / Mesajınız (İsteğe Bağlı)</label>
-                                        @error('message')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-4 text-center">
-                                    <button class="btn btn-primary w-50 py-3" type="submit" style="border-radius: 30px; font-weight: bold; letter-spacing: 1px;">Başvuruyu Gönder <i class="fa fa-paper-plane ms-2"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+</section>
+<!-- Contact End -->
+
+<!-- Google Map Start -->
+<section id="map" class="padding-medium pt-0" data-aos="fade-up">
+    <div class="container-fluid padding-side">
+        <div class="rounded-5 overflow-hidden shadow-sm" style="position: relative;">
+            <iframe class="w-100 d-block" style="height: 500px; border:0;"
+                src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d96428.79017231654!2d29.09078955928521!3d40.9508220689109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m3!3m2!1d40.9786274!2d29.125241199999998!4m5!1s0x14cac57f69349da7%3A0x88091e1d326bff19!2zR8O8dmVua2EgR3JvdXAsIE9ydGEsIEvEsWzEscOnIEFsaSBQYcWfYSBTay4gMjBBLCAzNDg4MCBLYXJ0YWwvxLBzdGFuYnVs!3m2!1d40.911994899999996!2d29.2049813!5e0!3m2!1str!2str!4v1786977451450!5m2!1str!2str"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </div>
-    <!-- Career End -->
+</section>
+<!-- Google Map End -->
+
+<style>
+    .contact-card.transition-hover {
+        transition: all 0.3s ease;
+    }
+    .contact-card.transition-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.05)!important;
+    }
+</style>
 @endsection

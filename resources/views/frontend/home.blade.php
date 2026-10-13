@@ -1,359 +1,156 @@
 @extends('frontend.layouts.master')
 @section('content')
-    <!-- Carousel Start -->
-<div class="container-fluid p-0">
-    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-
-        <div class="carousel-inner">
-            @foreach ($carousels as $index => $carousel)
-                <div class="carousel-item @if($index == 0) active @endif">
-                    
-                    <img class="w-100" style="max-height: 80vh; object-fit: cover;"
-                         src="{{ $carousel->getFirstMediaUrl('banner') }}" 
-                         alt="Image">
-{{-- 
-                    <div class="carousel-caption d-flex align-items-center">
-                        <div class="container">
-                            <div class="row align-items-center justify-content-center justify-content-lg-start">
-
-                                <div class="col-10 col-lg-7 text-center text-lg-start">
-                                    <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">
-                                        {!! $carousel->title !!}
-                                    </h1>
-  <p>{!! $carousel->description !!}</p>
-    
-                                    @if($carousel->button_text)
-                                        <a href="{{ $carousel->button_link ?? '#' }}" 
-                                           class="btn btn-primary py-3 px-5 animated slideInDown">
-                                            {{ $carousel->button_text }}
-                                            <i class="fa fa-arrow-right ms-3"></i>
-                                        </a>
-                                    @endif
-                                </div>
-
-                              <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
-                                    <img class="img-fluid" 
-                                         src="{{ $carousel->getFirstMediaUrl('banner') }}" 
-                                         alt="">
-                               
-
-                            </div>
-                        </div>
-                    </div>
- </div> --}}
-                </div>
-            @endforeach
-        </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev" aria-label="Önceki Slayt">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next" aria-label="Sonraki Slayt">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-
-    </div>
-</div>
-    <!-- Carousel End -->
-
-<!-- Categories Start -->
-<style>
-    .categories-overlap {
-        position: relative;
-        z-index: 10;
-        margin-top: -45px;
-        margin-bottom: 2rem;
-    }
-    @media (min-width: 992px) {
-        .categories-overlap {
-            margin-top: -95px;
-        }
-    }
-</style>
-<div class="container-fluid categories-overlap">
-    <div class="container">
-        <div class="row g-4 justify-content-center">
-            @if(isset($serviceCategories) && count($serviceCategories) > 0)
-              @foreach ($serviceCategories as $index => $category)
-                <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="{{ 0.1 + ($index * 0.2) }}s">
-                    <div class="bg-white rounded shadow d-flex align-items-center p-2" style="min-height: 100px; transition: 0.3s; cursor: pointer;" onmouseover="this.classList.add('shadow-lg')" onmouseout="this.classList.remove('shadow-lg')" onclick="window.location.href='{{ route('services.byCategory', ['slug' => $category->slug]) }}'">
-                        <img class="img-fluid rounded" style="width: 80px; height: 80px; object-fit: cover;" 
-                             src="{{ $category->getFirstMediaUrl('banner', 'large') ?: asset('assets/frontend/img/about-us' . ($index % 2 == 0 ? '2' : '') . '.webp') }}" 
-                             alt="{{ $category->title }}">
-                        <div class="ms-2">
-                            <h4 class="mb-2 fs-5">{{ $category->title }}</h4>
-                            <a class="text-primary text-uppercase fw-bold" href="{{ route('services.byCategory', ['slug' => $category->slug]) }}">
-                                HİZMETLERİ İNCELE <i class="fa fa-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-              @endforeach
-            @endif
-        </div>
-    </div>
-</div>
-<!-- Categories End -->
-
-
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="d-flex py-5 px-4">
-                        <i class="fa fa-certificate fa-3x text-primary flex-shrink-0"></i>
-                        <div class="ps-4">
-                            <h5 class="mb-3">Kaliteli Hizmet</h5>
-                            <p>Profesyonel ekibimizle en kaliteli güvenlik ve temizlik hizmetini sunuyoruz.</p>
-                            <a class="text-secondary border-bottom" href="{{ route('services-category.index') }}">Devamını Oku</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="d-flex bg-light py-5 px-4">
-                        <i class="fa fa-users-cog fa-3x text-primary flex-shrink-0"></i>
-                        <div class="ps-4">
-                            <h5 class="mb-3">Uzman Kadro</h5>
-                            <p>Alanında uzman ve deneyimli personelimizle güvenilir hizmet garantisi veriyoruz.</p>
-                            <a class="text-secondary border-bottom" href="{{ route('about-us.index') }}">Devamını Oku</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="d-flex py-5 px-4">
-                        <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
-                        <div class="ps-4">
-                            <h5 class="mb-3">Modern Ekipman</h5>
-                            <p>En son teknoloji ekipmanlarla hizmetlerimizi en yüksek standartta gerçekleştiriyoruz.</p>
-                            <a class="text-secondary border-bottom" href="{{ route('services-category.index') }}">Devamını Oku</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 pt-4 about-img-container">
-                    <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="row g-2 h-100">
-                            <div class="col-6">
-                                <div class="position-relative h-100">
-                                    <img class="img-fluid w-100 h-100 about-img-item" src="{{ asset('assets/frontend/img/about-us2.webp') }}" alt="Güvenlik Hizmetleri">
-                                    <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center about-img-caption-blue">
-                                        <span class="text-white fw-bold about-img-caption-text">GÜVENLİK</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="position-relative h-100">
-                                    <img class="img-fluid w-100 h-100 about-img-item" src="{{ asset('assets/frontend/img/about-us.webp') }}" alt="Temizlik Hizmetleri">
-                                    <div class="position-absolute bottom-0 start-0 w-100 p-2 text-center about-img-caption-red">
-                                        <span class="text-white fw-bold about-img-caption-text">TEMİZLİK</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="h6 text-primary text-uppercase">// Hakkımızda //</div>
-                    <h1 class="mb-4"><span class="text-primary">Smart Grup</span> Güvenlik ve Temizlik Hizmetlerinde Doğru Adres</h1>
-                    <p class="mb-4">11 yılı aşkın deneyimimizle güvenlik ve temizlik sektöründe güvenilir çözümler sunuyoruz. Uzman kadromuz ve modern ekipmanlarımızla müşterilerimize en yüksek kalitede hizmet vermeyi taahhüt ediyoruz.</p>
-                    <div class="row g-4 mb-3 pb-3">
-                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1 about-list-number-box">
-                                    <span class="fw-bold text-secondary">01</span>
-                                </div>
-                                <div class="ps-3">
-                                    <div class="h6">Profesyonel ve Uzman Ekip</div>
-                                    <span>Alanında uzman, sertifikalı personelimizle güvenilir hizmet sunuyoruz.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
-                            <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1 about-list-number-box">
-                                    <span class="fw-bold text-secondary">02</span>
-                                </div>
-                                <div class="ps-3">
-                                    <div class="h6">Kalite Odaklı Hizmet Anlayışı</div>
-                                    <span>Her projede en yüksek kalite standartlarını uyguluyoruz.</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="d-flex">
-                                <div class="bg-light d-flex flex-shrink-0 align-items-center justify-content-center mt-1 about-list-number-box">
-                                    <span class="fw-bold text-secondary">03</span>
-                                </div>
-                                <div class="ps-3">
-                                    <div class="h6">Ödüllü ve Güvenilir Firma</div>
-                                    <span>Sektörde kazandığımız ödüller ve referanslarla fark yaratıyoruz.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="{{ route('about-us.index') }}" class="btn btn-primary py-3 px-5">Daha Fazla<i class="fa fa-arrow-right ms-3"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-<section class="new-services-slider">
-      <div class="recipe-container">
-        <h1>HİZMETLERİMİZ</h1>
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            @foreach($services as $service)
-            <div class="swiper-slide post">
-              <img
-                class="post-img"
-                src="{{ $service->getFirstMediaUrl('banner', 'large') ?: asset('assets/frontend/img/about-us.jpg') }}"
-                alt="{{ $service->title }}" />
-
-              <div class="post-body">
-                <div class="post-detail">
-                  <h2 class="post-name">{{ $service->title }}</h2>
-                </div>
-
-                <div class="post-actions">
-                  <a class="post-like" href="{{ route('services-detail.show', ['slug' => $service->slug]) }}" aria-label="{{ $service->title }} detaylarını gör">
-                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            @endforeach
+ <section id="slider" data-aos="fade-up">
+    <div class="container-fluid padding-side pt-2">
+      <div class="d-flex rounded-5"
+        style="background-image: url({{ asset('assets/frontend/images/flower.jpg') }}); background-size: cover; background-repeat: no-repeat; height: 85vh; background-position: center;">
+        <div class="row align-items-center m-auto pt-5 px-4 px-lg-0">
+          <div class="text-start col-md-6 col-lg-5 col-xl-6 offset-lg-1">
+            <h2 class="display-1 fw-normal">Güvenka Organizasyon Özel Günlerinizde Yanınızda.</h2>
+            <a href="{{ route('services-category.index') }}" class="btn btn-arrow btn-primary mt-3">
+              <span>Keşfet <svg width="18" height="18">
+                  <use xlink:href="#arrow-right"></use>
+                </svg></span>
+            </a>
           </div>
-          <div class="swiper-scrollbar"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Fact Start -->
-    <div class="container-fluid fact bg-dark my-5 py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-check fa-2x text-white mb-3"></i>
-                    <h2 class="text-white mb-2"><span data-toggle="counter-up">11</span><span style="font-size: 0.7em;" class="ms-1 fw-bold">+</span></h2>
-                    <p class="text-white mb-0">Yıllık Deneyim</p>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
-                    <h2 class="text-white mb-2"><span data-toggle="counter-up">1000</span><span style="font-size: 0.7em;" class="ms-1 fw-bold">+</span></h2>
-                    <p class="text-white mb-0">Uzman Personel</p>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-users fa-2x text-white mb-3"></i>
-                    <h2 class="text-white mb-2"><span data-toggle="counter-up">5000</span><span style="font-size: 0.7em;" class="ms-1 fw-bold">+</span></h2>
-                    <p class="text-white mb-0">Memnun Müşteri</p>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                    <i class="fa fa-building fa-2x text-white mb-3"></i>
-                    <h2 class="text-white mb-2"><span data-toggle="counter-up">3000</span><span style="font-size: 0.7em;" class="ms-1 fw-bold">+</span></h2>
-                    <p class="text-white mb-0">Tamamlanan Proje</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Fact End -->
-
-
-
-
-
-    <!-- Custom Swiper Slider Start -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-
-    <section class="custom-slider-section">
-      <div class="content-container mb-4 mb-md-0">
-        <span>KEŞFEDİN</span>
-        <h1>Operasyonel Faaliyetlerimiz</h1>
-        <hr>
-        <p>Smart Grup olarak güvenlik ve temizlik alanlarında uzman kadromuzla, en yüksek kalitede profesyonel çözümler sunuyoruz.</p>
-        <a href="{{ route('references.index') }}" class="btn-download">TÜM PROJELER</a>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          @foreach($tabPanels as $tab)
-          <div class="swiper-slide custom-swiper-slide" style="background: linear-gradient(to top, rgba(11,33,84,0.9), rgba(11,33,84,0), rgba(11,33,84,0)), url('{{ $tab->getFirstMediaUrl('banner', 'large') ?: asset('assets/frontend/img/about-us.jpg') }}') no-repeat 50% 50% / cover;">
          
-          <div class="slide-content">
-            {{--   
-              <h2>{{ $tab->title }}</h2>
-              --}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-us" class="padding-large">
+    <div class="container-fluid padding-side" data-aos="fade-up">
+      <h3 class="display-4 text-center fw-normal col-lg-4 offset-lg-4">Güvenka Organizasyon Hayallerinizi Gerçeğe Dönüştürüyoruz</h3>
+      <div class="row align-items-start mt-3 mt-lg-5">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <p>Güvenka Organizasyon olarak; düğün, kına, nişan, doğum günü, sünnet, fuar, baby shower, sürpriz evlilik teklifi ve açılış organizasyonlarınız için yaratıcı ve profesyonel çözümler sunuyoruz. Her etkinliği kendine özgü bir konsept olarak ele alıyor, planlama ve dekorasyondan uygulamaya kadar tüm süreci titizlikle yönetiyoruz.
+Amacımız, özel anlarınızı unutulmaz deneyimlere dönüştürmek ve her organizasyonda beklentilerinizin ötesine geçen kaliteli, şık ve özenli çözümler sunmaktır.</p>
+            <a href="{{ route('about-us.index') }}" class="btn btn-arrow btn-primary mt-3">
+              <span>Bizi Tanıyın<svg width="18" height="18">
+                  <use xlink:href="#arrow-right"></use>
+                </svg></span>
+            </a>
+          </div>
+          <img src="{{ asset('assets/frontend/images/about-1.jpg') }}" alt="img" class="img-fluid rounded-4 mt-4">
+        </div>
+        <div class="col-lg-6 mt-5 mt-lg-0">
+          <img src="{{ asset('assets/frontend/images/about-2.jpg') }}" alt="img" class="img-fluid rounded-4">
+          <img src="{{ asset('assets/frontend/images/about-3.jpg') }}" alt="img" class="img-fluid rounded-4 mt-4">
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="info">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-md-3 text-center mb-4 mb-lg-0">
+          <h3 class="display-1 fw-normal text-primary position-relative">25K <span
+              class="position-absolute top-50 end-50 translate-middle z-n1 ps-lg-4 pt-lg-4"><img
+                src="{{ asset('assets/frontend/images/pattern1.png') }}" alt="pattern" class="img-fluid"></span></h3>
+          <p class="text-capitalize">Mutlu Müşteri</p>
+        </div>
+        <div class="col-md-3 text-center mb-4 mb-lg-0">
+          <h3 class="display-1 fw-normal text-primary position-relative">160 <span
+              class="position-absolute top-50 translate-middle z-n1"><img src="{{ asset('assets/frontend/images/pattern1.png') }}" alt="pattern"
+                class="img-fluid"></span></h3>
+          <p class="text-capitalize">Organizasyon</p>
+        </div>
+        <div class="col-md-3 text-center mb-4 mb-lg-0">
+          <h3 class="display-1 fw-normal text-primary position-relative">25 <span
+              class="position-absolute top-100 pb-5 translate-middle z-n1"><img src="{{ asset('assets/frontend/images/pattern1.png') }}" alt="pattern"
+                class="img-fluid"></span></h3>
+          <p class="text-capitalize">Yılın Organizasyonu</p>
+        </div>
+        <div class="col-md-3 text-center mb-4 mb-lg-0">
+          <h3 class="display-1 fw-normal text-primary position-relative">200 <span
+              class="position-absolute top-50 end-50 pb-lg-4 pe-lg-2 translate-middle z-n1"><img
+                src="{{ asset('assets/frontend/images/pattern1.png') }}" alt="pattern" class="img-fluid"></span></h3>
+          <p class="text-capitalize">Ekip Üyesi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="room" class="padding-medium">
+    <div class="container-fluid padding-side" data-aos="fade-up">
+      <div class="text-center mb-4">
+        <h3 class="display-4 fw-normal">Hizmetlerimiz</h3>
+      </div>
+    <div class="swiper room-swiper mt-2">
+      <div class="swiper-wrapper">
+        <!-- Dynamic Services Loop -->
+        @foreach($services as $service)
+        <div class="swiper-slide">
+      <div class="room-item position-relative bg-black rounded-4 overflow-hidden">
+        <img src="{{ $service->getFirstMediaUrl('banner', 'large') ?: ($service->getFirstMediaUrl('banner') ?: asset('assets/frontend/images/opening.jpeg')) }}"
+             alt="{{ $service->title }}"
+             class="post-image img-fluid rounded-4" style="height: 500px; width: 100%; object-fit: cover;">
+
+        <div class="product-description position-absolute p-5 text-start">
+          <h4 class="display-6 fw-normal text-white">
+            {{ $service->title }}
+          </h4>
+
+          <p class="product-paragraph text-white">
+            {{ $service->sort_detail ?? '' }}
+          </p>
+
+          <a href="{{ route('services-detail.show', $service->slug) }}">
+            <p class="text-decoration-underline text-white m-0 mt-2">
+              Detaylı Bilgi
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <div class="room-content text-center mt-3">
+        <h4 class="display-6 fw-normal">
+          <a href="{{ route('services-detail.show', $service->slug) }}">
+            {{ $service->title }}
+          </a>
+        </h4>
+      </div>
+    </div>
+    @endforeach
+
+  </div>
+  <div class="swiper-pagination room-pagination position-relative mt-5"></div>
+</div>
+
+  <section id="blog" class="padding-medium pt-0 ">
+    <div class="container-fluid padding-side" data-aos="fade-up">
+      <div class="d-flex flex-wrap align-items-center justify-content-between">
+        <div>
+          <h3 class="display-3 fw-normal text-center">Blog & Etkinlikler</h3>
+        </div>
+        <a href="{{ route('blog.index') }}" class="btn btn-arrow btn-primary mt-3">
+          <span>Daha Fazla<svg width="18" height="18">
+              <use xlink:href="#arrow-right"></use>
+            </svg></span>
+        </a>
+      </div>
+      <div class="row mt-5">
+        @foreach($blogs as $blog)
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="blog-post position-relative overflow-hidden rounded-4">
+            <img src="{{ asset($blog->image) }}" class="blog-img img-fluid rounded-4" alt="{{ $blog->title }}" style="width: 100%; height: 450px; object-fit: cover;">
+            <div class="position-absolute bottom-0 p-5">
+              <a href="{{ route('blog.show', $blog->slug) }}"><span class="bg-secondary text-body m-0 px-2 py-1 rounded-2 fs-6">{{ $blog->category }}</span></a>
+              <h4 class="display-6 fw-normal mt-2"><a href="{{ route('blog.show', $blog->slug) }}">{{ $blog->title }}</a></h4>
+              <p class="m-0 align-items-center"><svg width="19" height="19">
+                  <use xlink:href="#clock"></use>
+                </svg> {{ \Carbon\Carbon::parse($blog->published_at)->format('d M, Y') }}</p>
             </div>
           </div>
-          
-          @endforeach
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        @endforeach
       </div>
-    </section>
+    </div>
+  </section>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var swiperOld = new Swiper(".custom-slider-section .swiper", {
-          effect: "coverflow",
-          grabCursor: true,
-          centeredSlides: true,
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 3,
-            slideShadows: true
-          },
-          keyboard: {
-            enabled: true
-          },
-          mousewheel: {
-            thresholdDelta: 70
-          },
-          loop: true,
-          pagination: {
-            el: ".custom-slider-section .swiper-pagination",
-            clickable: true
-          },
-          breakpoints: {
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 2 },
-            1560: { slidesPerView: 3 }
-          }
-        });
 
-        var swiperNew = new Swiper(".new-services-slider .swiper", {
-          grabCursor: true,
-          speed: 400,
-          mousewheel: { invert: false },
-          scrollbar: { el: ".new-services-slider .swiper-scrollbar", draggable: true },
-          slidesPerView: 1,
-          spaceBetween: 15,
-          breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            900: { slidesPerView: 2, spaceBetween: 25 },
-            1200: { slidesPerView: 3, spaceBetween: 30 },
-            1500: { slidesPerView: 4, spaceBetween: 30 },
-          },
-        });
-      });
-    </script>
-    <!-- Custom Swiper Slider End -->
 @endsection

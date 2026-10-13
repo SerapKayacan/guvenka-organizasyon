@@ -108,7 +108,7 @@
             <div class="row align-items-center gx-5">
                 <div class="col-lg-8 py-3">
                     <h2 class="text-white mb-2">Siz de Referanslarımız Arasında Yer Alın</h2>
-                    <p class="mb-0" style="color:rgba(255,255,255,0.7);">Güvenlik ve temizlik hizmetlerimiz hakkında bilgi almak ve teklif talep etmek için bizimle iletişime geçin.</p>
+                    <p class="mb-0" style="color:rgba(255,255,255,0.7);">Organizasyon hizmetlerimiz hakkında bilgi almak ve teklif talep etmek için bizimle iletişime geçin.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="{{ route('contact.index') }}" class="btn btn-primary py-3 px-5">

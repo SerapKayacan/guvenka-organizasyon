@@ -15,9 +15,10 @@ class ContactController extends Controller
 
     public function index()
     {
-        SEOTools::setTitle('İletişim - Smart Grup');
-        SEOTools::setDescription('Smart Grup ile iletişime geçin. Güvenlik ve temizlik hizmetlerimiz hakkında bilgi almak için bizi arayın veya mesaj gönderin.');
+        SEOTools::setTitle('İletişim');
+        SEOTools::setDescription('Güvenka Organizasyon ile iletişime geçin. Düğün, kına, nişan, sünnet, doğum günü ve kurumsal organizasyon hizmetlerimiz hakkında bilgi ve teklif almak için bizi arayın veya mesaj gönderin.');
         SEOTools::opengraph()->addProperty('type', 'website');
+        SEOTools::metatags()->setKeywords(['güvenka organizasyon iletişim', 'organizasyon teklifi', 'kartal organizasyon', 'istanbul organizasyon firması']);
 
         return view('frontend.contact');
     }
@@ -37,9 +38,9 @@ class ContactController extends Controller
                     'subject'       => $request->get('subject'),
                     'messageDetail' => $request->get('message'),
                 ], function ($mail) use ($request) {
-                    $fromAddress = config('mail.from.address') ?: 'noreply@smartgrup.com.tr';
-                    $fromName    = config('mail.from.name') ?: 'Smart Grup';
-                    $toAddress   = env('MAIL_TO_ADDRESS') ?: 'info@smartozelguvenlik.com.tr';
+                    $fromAddress = config('mail.from.address') ?: 'info@guvenkagroup.com';
+                    $fromName    = config('mail.from.name') ?: 'Güvenka Organizasyon';
+                    $toAddress   = env('MAIL_TO_ADDRESS') ?: 'info@guvenkagroup.com';
                     $subject     = env('MAIL_SUBJECT') ?: 'Yeni İletişim Formu Mesajı';
 
                     $mail->from($fromAddress, $fromName);
@@ -82,8 +83,9 @@ class ContactController extends Controller
         'message'  => $request->message,
     ];
 
-    // ✅ Directly set HR email (no env issue anymore)
-    $hrEmail = 'ik.smartgrup@gmail.com';
+    $hrEmail = env('HR_MAIL_ADDRESS') ?: 'info@guvenkagroup.com';
+    $fromAddress = config('mail.from.address') ?: 'info@guvenkagroup.com';
+    $fromName = config('mail.from.name') ?: 'Güvenka Organizasyon';
 
     // Extra safety check
     if (empty($hrEmail)) {
@@ -91,17 +93,15 @@ class ContactController extends Controller
     }
 
     // Send mail
-  
-
-Mail::to('ik.smartgrup@gmail.com')
-    ->send(
-        (new HumanResourcesMail(
-            $applicationData,
-            $absolutePath,
-            $file->getClientOriginalName()
-        ))
-        ->from('noreply@smartgrup.com.tr', 'Smart Grup') // ✅ ADD THIS
-    );
+    Mail::to($hrEmail)
+        ->send(
+            (new HumanResourcesMail(
+                $applicationData,
+                $absolutePath,
+                $file->getClientOriginalName()
+            ))
+            ->from($fromAddress, $fromName)
+        );
     return redirect()->back()->with(
         'success',
         'Kariyer başvurunuz başarıyla alındı ve İnsan Kaynakları departmanına iletildi!'

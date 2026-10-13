@@ -37,10 +37,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        // Check if it's a 404 error
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             // Redirect to the home page
-            return redirect('https://www.smartgrup.com.tr/');
+            return redirect('/');
         }
 
         // Catch file too big exceptions

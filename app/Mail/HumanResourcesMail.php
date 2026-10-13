@@ -40,7 +40,7 @@ class HumanResourcesMail extends Mailable
    public function envelope()
 {
     return new Envelope(
-        from: 'ik.smartgrup@gmail.com',
+        from: config('mail.from.address') ?: 'info@guvenkagroup.com',
         subject: 'Yeni Kariyer / İnsan Kaynakları Başvurusu: ' . $this->applicationData['name'],
     );
 }

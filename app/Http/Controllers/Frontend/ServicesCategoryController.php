@@ -14,10 +14,10 @@ class ServicesCategoryController extends Controller
     {
         $serviceCategories = ServiceCategory::with('services')->where('is_active', true)->orderBy('sort_order', 'ASC')->get();
 
-        SEOTools::setTitle('Hizmetlerimiz - Smart Grup');
-        SEOTools::setDescription('Smart Grup güvenlik ve temizlik hizmetleri kategorileri. Profesyonel ekibimizle tüm ihtiyaçlarınıza çözüm sunuyoruz.');
+        SEOTools::setTitle('Hizmetlerimiz');
+        SEOTools::setDescription('Güvenka Organizasyon etkinlik ve davet yönetimi kategorileri. Düğün, nişan, kına, açılış, doğum günü ve kurumsal organizasyon çözümleri.');
         SEOTools::opengraph()->addProperty('type', 'website');
-        SEOTools::metatags()->setKeywords(['güvenlik hizmetleri', 'temizlik hizmetleri', 'özel güvenlik', 'kurumsal temizlik', 'smart grup']);
+        SEOTools::metatags()->setKeywords(['organizasyon hizmetleri', 'düğün organizasyonu', 'kına organizasyonu', 'nişan organizasyonu', 'açılış organizasyonu', 'güvenka organizasyon']);
 
         return view('frontend.services-category', [
             'serviceCategories' => $serviceCategories,

@@ -39,9 +39,12 @@ class Service extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('large')
-            ->fit(Manipulations::FIT_MAX, 400, 300);
+            ->fit(Manipulations::FIT_MAX, 1600, 1200);
 
         $this->addMediaConversion('medium')
-            ->fit(Manipulations::FIT_MAX, 400, 300);
+            ->fit(Manipulations::FIT_MAX, 800, 800);
+
+        $this->addMediaConversion('thumb')
+            ->fit(Manipulations::FIT_MAX, 200, 200);
     }
 }

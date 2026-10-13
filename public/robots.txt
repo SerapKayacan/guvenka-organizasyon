@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.smartgrup.com.tr/sitemap.xml
+Sitemap: https://www.guvenkagroup.com/sitemap.xml

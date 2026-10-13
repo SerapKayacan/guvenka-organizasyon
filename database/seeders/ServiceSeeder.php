@@ -2,86 +2,88 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Models\Service;
 use App\Models\ServiceCategory;
-use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class ServiceSeeder extends Seeder
 {
-    public function run(): void
+    public function run()
     {
-        $security = ServiceCategory::firstOrCreate(
-            ['slug' => 'guvenlik-hizmetleri'],
-            [
-                'title'       => 'Güvenlik Hizmetleri',
-                'description' => 'Güvenlik ihtiyaçlarınıza özel çözümler sunuyoruz.',
-                'sort_order'  => 1,
-                'is_active'   => true,
-            ]
-        );
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Service::truncate();
+        ServiceCategory::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $securityServices = [
-            ['title' => 'Site Özel Güvenlik Hizmetleri',       'description' => 'Konut siteleri ve rezidanslarda profesyonel güvenlik personeli ile 7/24 koruma hizmeti sunuyoruz.',         'sort_order' => 1],
-            ['title' => 'AVM Güvenliği',                        'description' => 'Alışveriş merkezlerinde kalabalık yönetimi, kamera sistemi takibi ve acil müdahale hizmetleri sağlıyoruz.', 'sort_order' => 2],
-            ['title' => 'Fabrika Güvenliği',                    'description' => 'Üretim tesislerinde vardiyalı güvenlik, araç giriş-çıkış kontrolü ve personel güvenliği sunuyoruz.',        'sort_order' => 3],
-            ['title' => 'Şantiye Güvenliği',                    'description' => 'İnşaat şantiyelerinde malzeme koruma, personel takibi ve gece nöbet hizmetleri sağlıyoruz.',               'sort_order' => 4],
-            ['title' => 'Eğitim Kurumları ve Okul Güvenliği',   'description' => 'Öğrenci ve personel güvenliği, okul giriş-çıkış kontrolü ve veli karşılama protokolleri uyguluyoruz.',     'sort_order' => 5],
-            ['title' => 'Otel ve Turistik İşletme Güvenliği',   'description' => 'Otel ve turistik tesislerde misafir güvenliği, otopark yönetimi ve 7/24 nöbet hizmetleri sunuyoruz.',      'sort_order' => 6],
+        $category = ServiceCategory::create([
+            'title' => 'Organizasyon Hizmetleri',
+            'slug' => 'organizasyon-hizmetleri',
+            'is_active' => true,
+            'sort_order' => 1
+        ]);
+
+        $services = [
+            [
+                'title' => 'Açılış Organizasyonu',
+                'image' => 'assets/frontend/images/opening.jpeg',
+                'summary' => 'İşletmenizin açılışını unutulmaz bir etkinliğe dönüştürüyor, konsept ve dekorasyondan tüm organizasyon detaylarına kadar profesyonel çözümler sunuyoruz.'
+            ],
+            [
+                'title' => 'Baby Shower Organizasyonu',
+                'image' => 'assets/frontend/images/babyshower.jpg',
+                'summary' => 'Anne ve bebeğin bu özel gününü özenle hazırlanan konsept, dekorasyon ve eğlenceli detaylarla unutulmaz bir kutlamaya dönüştürüyoruz.'
+            ],
+            [
+                'title' => 'Doğum Günü Organizasyonu',
+                'image' => 'assets/frontend/images/birthday.jpg',
+                'summary' => 'Her yaşa ve konsepte uygun doğum günü organizasyonları hazırlıyor, özel gününüzü eğlenceli ve unutulmaz anlara dönüştürüyoruz.'
+            ],
+            [
+                'title' => 'Düğün Organizasyonu',
+                'image' => 'assets/frontend/images/wedding.jpg',
+                'summary' => 'Hayalinizdeki düğünü gerçeğe dönüştürüyor, dekorasyon, konsept ve organizasyonun tüm detaylarını sizin için planlıyoruz.'
+            ],
+            [
+                'title' => 'Sürpriz Evlilik Teklifi',
+                'image' => 'assets/frontend/images/mariageproposal.jpg',
+                'summary' => 'Hayatınızın en özel sorusunu unutulmaz bir ana dönüştürüyor, romantik konseptler ve sürpriz detaylarla yanınızda oluyoruz.'
+            ],
+            [
+                'title' => 'Kına Organizasyonu',
+                'image' => 'assets/frontend/images/henna.jpg',
+                'summary' => 'Geleneksel kına gecelerini modern ve şık konseptlerle buluşturuyor, gecenizin her detayını özenle planlıyoruz.'
+            ],
+            [
+                'title' => 'Nişan Organizasyonu',
+                'image' => 'assets/frontend/images/engagement.jpg',
+                'summary' => 'Nişan gününüz için zarif ve şık konseptler hazırlıyor, mekan dekorasyonundan masa düzenine kadar tüm detayları planlıyoruz.'
+            ],
+            [
+                'title' => 'Sünnet Organizasyonu',
+                'image' => 'assets/frontend/images/circumcision.jpg',
+                'summary' => 'Çocuğunuzun bu özel gününü eğlenceli ve renkli konseptlerle planlıyor, unutulmaz bir sünnet organizasyonu gerçekleştiriyoruz.'
+            ],
+            [
+                'title' => 'Fuar Organizasyonu',
+                'image' => 'assets/frontend/images/fair.jpg',
+                'summary' => 'Markanızı en iyi şekilde yansıtacak fuar organizasyonları hazırlıyor, stand tasarımı ve etkinlik süreçlerinde profesyonel destek sunuyoruz.'
+            ],
         ];
 
-        foreach ($securityServices as $data) {
-            $slug = \Illuminate\Support\Str::slug($data['title']);
-            Service::firstOrCreate(
-                ['slug' => $slug],
-                [
-                    'title'               => $data['title'],
-                    'slug'                => $slug,
-                    'meta_description'    => $data['description'],
-                    'category_page_detail'=> $data['description'],
-                    'sort_detail'         => '',
-                    'detail'              => '',
-                    'category_id'         => $security->id,
-                    'sort_order'          => $data['sort_order'],
-                    'is_active'           => true,
-                ]
-            );
-        }
-
-        $cleaning = ServiceCategory::firstOrCreate(
-            ['slug' => 'temizlik-hizmetleri'],
-            [
-                'title'       => 'Temizlik Hizmetleri',
-                'description' => 'Temizlik ihtiyaçlarınıza özel çözümler sunuyoruz.',
-                'sort_order'  => 2,
-                'is_active'   => true,
-            ]
-        );
-
-        $cleaningServices = [
-            ['title' => 'AVM Temizlik Hizmetleri',              'description' => 'Alışveriş merkezlerinde günlük, haftalık ve periyodik temizlik hizmetleri sunuyoruz.',                      'sort_order' => 1],
-            ['title' => 'Kat Hizmetleri (Housekeeping)',         'description' => 'Otel ve konaklama tesislerinde oda temizliği, çarşaf değişimi ve genel düzenleme hizmetleri sağlıyoruz.', 'sort_order' => 2],
-            ['title' => 'Steward Hizmetleri',                   'description' => 'Mutfak ve servis alanlarında steward hizmetleri ile hijyen standartlarını koruyoruz.',                     'sort_order' => 3],
-            ['title' => 'Garson/Servis Personeli',              'description' => 'Profesyonel garson ve servis personeli ile misafirlerinize kaliteli hizmet sunuyoruz.',                     'sort_order' => 4],
-            ['title' => 'Bulaşıkhane Hizmetleri',               'description' => 'Restoran ve otel mutfaklarında bulaşıkhane operasyonlarını hijyen standartlarına uygun yürütüyoruz.',      'sort_order' => 5],
-            ['title' => 'Otel Temizlik & Operasyon Hizmetleri', 'description' => 'Otel genelinde kapsamlı temizlik ve operasyon hizmetleri ile misafir memnuniyetini en üst düzeyde tutuyoruz.', 'sort_order' => 6],
-        ];
-
-        foreach ($cleaningServices as $data) {
-            $slug = \Illuminate\Support\Str::slug($data['title']);
-            Service::firstOrCreate(
-                ['slug' => $slug],
-                [
-                    'title'               => $data['title'],
-                    'slug'                => $slug,
-                    'meta_description'    => $data['description'],
-                    'category_page_detail'=> $data['description'],
-                    'sort_detail'         => '',
-                    'detail'              => '',
-                    'category_id'         => $cleaning->id,
-                    'sort_order'          => $data['sort_order'],
-                    'is_active'           => true,
-                ]
-            );
+        foreach ($services as $index => $s) {
+            Service::create([
+                'category_id' => $category->id,
+                'title' => $s['title'],
+                'slug' => Str::slug($s['title']),
+                'sort_detail' => $s['summary'],
+                'detail' => '<p>' . $s['summary'] . '</p><p>Güvenka Organizasyon olarak en yüksek kaliteyi sunmayı hedefliyoruz. Bize ulaşarak detaylı fiyat teklifi alabilirsiniz.</p>',
+                'is_active' => true,
+                'sort_order' => $index + 1
+            ]);
+            // Notice: Image needs to be saved to spatie media library or a custom column.
+            // Since Service has 'hasMedia' in ServicesDetailController, it's Spatie. We can skip associating media for the seeder to save complexity and just use the static image on the frontend if needed, OR we can add a 'image' column in frontend loop if we map it manually. Wait, in home.blade.php I'll just map slug to image for simplicity, or we can use the db image logic if we add it. 
         }
     }
 }

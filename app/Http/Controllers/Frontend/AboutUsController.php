@@ -12,10 +12,10 @@ class AboutUsController extends Controller
     {
         $serviceCategories = ServiceCategory::withCount('services')->orderBy('sort_order','ASC')->get();
 
-        SEOTools::setTitle('Hakkımızda - Smart Grup');
-        SEOTools::setDescription('Smart Grup hakkında bilgi alın. 11 yılı aşkın deneyimimizle güvenlik ve temizlik sektöründe güvenilir çözümler sunuyoruz.');
+        SEOTools::setTitle('Hakkımızda');
+        SEOTools::setDescription('Güvenka Organizasyon hakkında bilgi alın. Düğün, kına, nişan, sünnet, doğum günü ve kurumsal etkinliklerinizde profesyonel çözümler sunuyoruz.');
         SEOTools::opengraph()->addProperty('type', 'website');
-        SEOTools::metatags()->setKeywords(['smart grup hakkında', 'güvenlik şirketi', 'temizlik şirketi', 'istanbul güvenlik']);
+        SEOTools::metatags()->setKeywords(['güvenka organizasyon', 'hakkımızda', 'düğün organizasyonu', 'kına organizasyonu', 'istanbul organizasyon firması']);
 
         return view('frontend.about-us', [
             'serviceCategories' => $serviceCategories,

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Carousel;
 use App\Models\Service;
 use App\Models\TabPanel;
+use App\Models\Blog;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use App\Models\ServiceCategory;
@@ -17,17 +18,19 @@ class HomeController extends Controller
         $carousels = Carousel::where('is_active', true)->orderBy('sort_order','ASC')->get();
         $tabPanels = TabPanel::where('is_active', true)->orderBy('sort_order','ASC')->get();
         $services = Service::where('is_active', true)->orderBy('sort_order','ASC')->get();
+        $blogs = Blog::where('is_active', true)->latest('published_at')->take(3)->get();
 
         SEOTools::setTitle('Ana Sayfa');
-        SEOTools::setDescription('Smart Grup olarak İstanbul\'da profesyonel özel güvenlik ve temizlik hizmetleri sunuyoruz. Sertifikalı personel, 7/24 kesintisiz hizmet.');
+        SEOTools::setDescription('Güvenka Organizasyon olarak İstanbul\'da düğün, kına, nişan, sünnet, doğum günü, baby shower ve kurumsal etkinlikleriniz için yaratıcı ve profesyonel çözümler sunuyoruz.');
         SEOTools::opengraph()->addProperty('type', 'website');
-        SEOTools::metatags()->setKeywords(['özel güvenlik', 'güvenlik hizmetleri', 'temizlik hizmetleri', 'smart grup', 'istanbul güvenlik']);
+        SEOTools::metatags()->setKeywords(['güvenka organizasyon', 'düğün organizasyonu', 'kına organizasyonu', 'nişan organizasyonu', 'doğum günü organizasyonu', 'sünnet organizasyonu', 'kurumsal etkinlik', 'istanbul organizasyon']);
 
         return view('frontend.home', [
             'serviceCategories' => $serviceCategories,
             'carousels'         => $carousels,
             'tabPanels'         => $tabPanels,
             'services'          => $services,
+            'blogs'             => $blogs,
         ]);
     }
 

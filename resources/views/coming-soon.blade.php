@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yapım Aşamasında</title>
+    <title>Güvenka Organizasyon - Web Sitemiz Yapım Aşamasında</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -135,23 +135,23 @@
 </head>
 <body>
     <div class="card">
-        <img src="{{ asset('assets\frontend\images\logo.png') }}" alt="Smart Grup Logo" class="logo">
+        <img src="{{ asset('assets/frontend/images/logo.png') }}" alt="Güvenka Organizasyon Logo" class="logo">
         <div class="icons-row">
-            <div class="icon-circle blue">🛡️</div>
-            <div class="icon-circle green">🧹</div>
+            <div class="icon-circle blue">🎉</div>
+            <div class="icon-circle green">✨</div>
         </div>
 
-        <div class="company-name">Güvenlik &amp; Temizlik Hizmetleri</div>
+        <div class="company-name">Güvenka Organizasyon</div>
         <h1>Web Sitemiz Yapım Aşamasında</h1>
-        <div class="tagline">Temiz ve güvenli bir gelecek için çalışıyoruz</div>
+        <div class="tagline">Özel anlarınızı unutulmaz kılıyoruz</div>
         <div class="divider"></div>
 
-        <p>Profesyonel ekibimizle güvenlik ve temizlik hizmetlerimizi en iyi şekilde sunabilmek için yeni web sitemizi hazırlıyoruz.</p>
+        <p>Profesyonel ekibimizle organizasyon ve davet yönetimi hizmetlerimizi en kusursuz şekilde sunabilmek için yeni web sitemizi hazırlıyoruz.</p>
 
         <div class="services">
-            <span class="service-tag blue">🛡️ Güvenlik</span>
-            <span class="service-tag green">🧹 Temizlik</span>
-            <span class="service-tag gray">⏰ 7/24 Destek</span>
+            <span class="service-tag blue">🎉 Davet &amp; Etkinlik</span>
+            <span class="service-tag green">💍 Düğün &amp; Kına</span>
+            <span class="service-tag gray">✨ Kurumsal Organizasyon</span>
         </div>
 
         <span class="badge">✨ Çok Yakında</span>

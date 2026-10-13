@@ -192,6 +192,20 @@
                     <!--end:Menu sub-->
                 </div>
 
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->routeIs('admin.blog.*') ? 'active' : '' }}" href="{{ route('admin.blog.index') }}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                                    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.85-.497L13 13.238V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.222.5.497.5H12z"/>
+                                    <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm5-4h5v1H7V6zm0 2h5v1H7V8zm0 2h5v1H7v-1z"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">Blog Yönetimi</span>
+                    </a>
+                </div>
+
                 <div class="menu-item pt-5">
                     <div class="menu-content">
                         <span class="menu-heading fw-bold text-uppercase fs-7">SİSTEM YÖNETİMİ</span>
@@ -250,7 +264,7 @@
         <a href="#" style="cursor: inherit"
            class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="">
-            <span class="btn-label">Smart Grup v1.0.0</span>
+            <span class="btn-label">Güvenka Organizasyon v1.0.0</span>
             <span class="svg-icon btn-icon svg-icon-2 m-0">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.3"

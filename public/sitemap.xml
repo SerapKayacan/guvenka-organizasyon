@@ -1,83 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.smartgrup.com.tr/</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-kategorileri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hakkimizda</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmetler/guvenlik-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-kategorileri</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/acilis-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmetler/temizlik-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/baby-shower-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/iletisim</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/dogum-gunu-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/references</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/dugun-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/site-ozel-guvenlik-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/surpriz-evlilik-teklifi</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hakkimizda</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/kina-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/avm-guvenligi</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/nisan-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/avm-temizlik-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/sunnet-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/kat-hizmetleri-housekeeping</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/hizmet-detayi/fuar-organizasyonu</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/fabrika-guvenligi</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/steward-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog/dugun-organizasyonunda-yeni-trendler-2026</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/santiye-guvenligi</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog/romantik-ve-unutulmaz-surpriz-evlilik-teklifi-fikirleri</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/bulasikhane-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog/kurumsal-acilis-organizasyonlarinin-puf-noktalari</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/egitim-kurumlari-ve-okul-guvenligi</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog/gelenekselden-moderne-mukemmel-kina-gecesi</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/otel-ve-turistik-isletme-guvenligi</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/blog/baby-shower-davetleri-icin-konsept-onerileri</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/otel-temizlik-operasyon-hizmetleri</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/references</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     <url>
-        <loc>https://www.smartgrup.com.tr/hizmet-detayi/garsonservis-personeli</loc>
-    
-            </url>
+        <loc>https://www.guvenkagroup.com/iletisim</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

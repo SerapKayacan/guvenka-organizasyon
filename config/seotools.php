@@ -3,16 +3,15 @@
 return [
     'meta' => [
         'defaults' => [
-            'title'        => 'Smart Grup Özel Güvenlik ve Temizlik Hizmetleri',
+            'title'        => 'Güvenka Organizasyon',
             'titleBefore'  => false,
-            'description'  => 'Smart Grup olarak İstanbul\'da profesyonel özel güvenlik ve temizlik hizmetleri sunuyoruz. Sertifikalı personel, 7/24 kesintisiz hizmet.',
+            'description'  => 'Güvenka Organizasyon olarak İstanbul\'da düğün, kına, nişan, sünnet, doğum günü, baby shower ve kurumsal etkinlikleriniz için profesyonel organizasyon çözümleri sunuyoruz.',
             'separator'    => ' - ',
             'keywords'     => [
-                'özel güvenlik', 'güvenlik hizmetleri', 'site güvenliği', 'avm güvenliği',
-                'fabrika güvenliği', 'şantiye güvenliği', 'okul güvenliği', 'otel güvenliği',
-                'temizlik hizmetleri', 'avm temizliği', 'otel temizliği', 'kat hizmetleri',
-                'housekeeping', 'steward hizmetleri', 'kurumsal temizlik',
-                'smart grup', 'istanbul güvenlik', 'istanbul temizlik',
+                'güvenka organizasyon', 'organizasyon firması', 'düğün organizasyonu', 'kına organizasyonu',
+                'nişan organizasyonu', 'sünnet organizasyonu', 'doğum günü organizasyonu', 'baby shower organizasyonu',
+                'açılış organizasyonu', 'istanbul organizasyon', 'kurumsal etkinlik', 'davet organizasyonu',
+                'etkinlik yönetimi', 'istanbul davet', 'özel gün organizasyonu',
             ],
             'canonical'    => 'full',
             'robots'       => 'all',
@@ -29,24 +28,24 @@ return [
     ],
     'opengraph' => [
         'defaults' => [
-            'title'       => 'Smart Grup Özel Güvenlik ve Temizlik Hizmetleri',
-            'description' => 'Smart Grup olarak İstanbul\'da profesyonel özel güvenlik ve temizlik hizmetleri sunuyoruz.',
+            'title'       => 'Güvenka Organizasyon',
+            'description' => 'Güvenka Organizasyon olarak İstanbul\'da düğün, kına, nişan, sünnet ve kurumsal etkinlikleriniz için profesyonel organizasyon çözümleri sunuyoruz.',
             'url'         => null,
             'type'        => false,
-            'site_name'   => 'Smart Grup',
+            'site_name'   => 'Güvenka Organizasyon',
             'images'      => [],
         ],
     ],
     'twitter' => [
         'defaults' => [
             'card' => 'summary',
-            'site' => '@SmartGrup',
+            'site' => '@guvenkagroup',
         ],
     ],
     'json-ld' => [
         'defaults' => [
-            'title'       => 'Smart Grup Özel Güvenlik ve Temizlik Hizmetleri',
-            'description' => 'Smart Grup olarak İstanbul\'da profesyonel özel güvenlik ve temizlik hizmetleri sunuyoruz.',
+            'title'       => 'Güvenka Organizasyon',
+            'description' => 'Güvenka Organizasyon olarak İstanbul\'da düğün, kına, nişan, sünnet ve kurumsal etkinlikleriniz için profesyonel organizasyon çözümleri sunuyoruz.',
             'url'         => null,
             'type'        => 'WebPage',
             'images'      => [],

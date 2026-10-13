@@ -10,13 +10,13 @@ class TabPanelSeeder extends Seeder
     public function run(): void
     {
         TabPanel::create([
-            'title'      => 'Güvenlik Hizmetleri',
+            'title'      => 'Organizasyon Hizmetleri',
             'sort_order' => 1,
             'is_active'  => true,
         ]);
 
         TabPanel::create([
-            'title'      => 'Temizlik Hizmetleri',
+            'title'      => 'Kurumsal Etkinlik Yönetimi',
             'sort_order' => 2,
             'is_active'  => true,
         ]);
